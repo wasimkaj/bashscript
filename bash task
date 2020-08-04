@@ -1,0 +1,6 @@
+#!/bin/bash
+
+disk=$(df -h --output=size --total | awk 'END {print $1}')
+ram=$(free -m | awk {'print $2'} | sort -nr | head -n 1)
+echo 'Total disk:' $disk
+echo 'Total memory:' $ram'MB'
